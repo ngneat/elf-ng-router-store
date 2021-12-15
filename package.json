@@ -2,8 +2,6 @@
   "name": "ngneat-elf-ng-router-store",
   "version": "0.0.0",
   "license": "MIT",
-  "author": "Yannick Boetzkes",
-  "keywords": ["elf", "angular", "router", "state management", "reactive store", "rxjs", "typescript"],
   "scripts": {
     "ng": "nx",
     "nx": "nx",
