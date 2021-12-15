@@ -1,6 +1,48 @@
 {
   "version": 1,
   "projects": {
+    "ng-router-store": {
+      "projectType": "library",
+      "root": "libs/ng-router-store",
+      "sourceRoot": "libs/ng-router-store/src",
+      "prefix": "ngneat-elf-ng-router-store",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/ng-router-store"],
+          "options": {
+            "project": "libs/ng-router-store/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ng-router-store/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/ng-router-store/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ng-router-store"],
+          "options": {
+            "jestConfig": "libs/ng-router-store/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ng-router-store/src/**/*.ts",
+              "libs/ng-router-store/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
     "ng-web": {
       "projectType": "application",
       "root": "apps/ng-web",
