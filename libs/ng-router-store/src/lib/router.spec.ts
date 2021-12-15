@@ -3,7 +3,6 @@ import { Component, Injectable, NgZone }                                        
 import { fakeAsync, TestBed, tick }                                               from '@angular/core/testing';
 import { ActivatedRouteSnapshot, CanActivate, NavigationExtras, Router, Routes, } from '@angular/router';
 import { RouterTestingModule }                                                    from '@angular/router/testing';
-import { getRegistry }                                                            from '@ngneat/elf';
 import { ElfNgRouterStoreModule }                                                 from './ng-router-store.module';
 import { RouterRepository }                                                       from './router.repository';
 
@@ -69,8 +68,6 @@ describe('RouterService', () => {
     ngZone           = TestBed.get(NgZone);
     router           = TestBed.get(Router);
 
-
-
     navigateByUrl('start');
   });
 
@@ -86,7 +83,6 @@ describe('RouterService', () => {
   });
 
   it('should update the router state when only the hash changes', async () => {
-    routerRepository.reset()
     // todo earlier test is bleeding in this test. navigation id starts at 2
     await navigateByUrl('/start#hashBrowns');
 
