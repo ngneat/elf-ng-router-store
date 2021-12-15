@@ -2,6 +2,8 @@
   "name": "ngneat-elf-ng-router-store",
   "version": "0.0.0",
   "license": "MIT",
+  "author": "Yannick Boetzkes",
+  "keywords": ["Elf", "Angular", "Router", "Store"],
   "scripts": {
     "ng": "nx",
     "nx": "nx",
