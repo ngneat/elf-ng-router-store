@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable }                    from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   GuardsCheckEnd,
@@ -8,15 +8,15 @@ import {
   ResolveEnd,
   Router,
   RoutesRecognized,
-} from '@angular/router';
-import { RouterStateService } from './router-state.service';
+}                                        from '@angular/router';
+import { RouterStateService }            from './router-state.service';
 import { RouterRepository, RouterState } from './router.repository';
 
 @Injectable({ providedIn: 'root' })
 export class RouterService {
   private lastRouterState: RouterState;
   private navigationTriggeredByDispatch = false;
-  private dispatchTriggeredByRouter = false;
+  private dispatchTriggeredByRouter     = false;
 
   constructor(
     private routerRepository: RouterRepository,
@@ -51,11 +51,14 @@ export class RouterService {
         e instanceof ResolveEnd
       ) {
         this.lastRouterState = this.serializeRoute(e);
-      } else if (e instanceof NavigationCancel) {
+      }
+      else if (e instanceof NavigationCancel) {
         this.dispatchRouterCancel(e);
-      } else if (e instanceof NavigationError) {
+      }
+      else if (e instanceof NavigationError) {
         this.dispatchRouterError(e);
-      } else if (
+      }
+      else if (
         e instanceof NavigationEnd &&
         !this.navigationTriggeredByDispatch
       ) {
@@ -69,14 +72,15 @@ export class RouterService {
       .select((state) => state)
       .subscribe((s) => {
         this.lastRouterState = s;
-        this.navigateIfNeeded();
+        // todo do we need this?
+        // this.navigateIfNeeded();
       });
   }
 
   private update(routerState: Partial<RouterState>) {
     this.dispatchTriggeredByRouter = true;
     this.routerRepository.update(routerState);
-    this.dispatchTriggeredByRouter = false;
+    this.dispatchTriggeredByRouter     = false;
     this.navigationTriggeredByDispatch = false;
   }
 
