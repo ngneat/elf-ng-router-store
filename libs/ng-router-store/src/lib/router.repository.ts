@@ -1,9 +1,9 @@
 import { Injectable }                                             from '@angular/core';
-import { createState, select, Store, withProps }                  from '@ngneat/elf';
+import { createState, filterNil, select, Store, withProps }       from '@ngneat/elf';
 import { combineLatest, distinctUntilChanged, Observable, pluck } from 'rxjs';
 import { RouterStateService }                                     from './router-state.service';
 import { HashMap }                                                from './util.types';
-import { filterNilValue, sliceState }                             from './utils';
+import { sliceState }                                             from './utils';
 
 export type ActiveRouteState = {
   url: string;
@@ -64,7 +64,7 @@ export class RouterRepository {
       store.pipe(
         sliceState<RouterState>('params'),
         pluck(p),
-        filterNilValue()
+        filterNil()
       );
 
     if (Array.isArray(names)) {
@@ -105,7 +105,7 @@ export class RouterRepository {
       store.pipe(
         sliceState<RouterState>('queryParams'),
         pluck(p),
-        filterNilValue()
+        filterNil()
       );
 
     if (Array.isArray(names)) {
@@ -133,7 +133,7 @@ export class RouterRepository {
    * Fragment
    */
   selectFragment(): Observable<string> {
-    return store.pipe(sliceState('fragment'), filterNilValue());
+    return store.pipe(sliceState('fragment'), filterNil());
   }
 
   getFragment(): string | undefined | null {
@@ -150,10 +150,10 @@ export class RouterRepository {
    */
   selectData<T = any>(name?: string): Observable<T> {
     if (name === undefined) {
-      return store.pipe(sliceState('data'), filterNilValue());
+      return store.pipe(sliceState('data'), filterNil());
     }
 
-    return store.pipe(sliceState('data'), pluck(name), filterNilValue());
+    return store.pipe(sliceState('data'), pluck(name), filterNil());
   }
 
   getData<T = any>(name?: string): T | null {
@@ -175,10 +175,10 @@ export class RouterRepository {
    */
   selectNavigationExtras<T = any>(name?: string): Observable<T> {
     if (name === undefined) {
-      return store.pipe(sliceState('navigationExtras'), filterNilValue());
+      return store.pipe(sliceState('navigationExtras'), filterNil());
     }
 
-    return store.pipe(sliceState('data'), pluck(name), filterNilValue());
+    return store.pipe(sliceState('data'), pluck(name), filterNil());
   }
 
   getNavigationExtras<T = any>(name?: string): T | null {
