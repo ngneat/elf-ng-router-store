@@ -1,10 +1,11 @@
-import { HttpClientModule }    from '@angular/common/http';
-import { NgModule }            from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule }       from '@angular/platform-browser';
-import { RouterModule }        from '@angular/router';
-import { AppComponent }        from './app.component';
-import { NavComponent }        from './nav/nav.component';
+import { HttpClientModule }       from '@angular/common/http';
+import { NgModule }               from '@angular/core';
+import { ReactiveFormsModule }    from '@angular/forms';
+import { BrowserModule }          from '@angular/platform-browser';
+import { RouterModule }           from '@angular/router';
+import { ElfNgRouterStoreModule } from '@ngneat/elf-ng-router-store';
+import { AppComponent }           from './app.component';
+import { NavComponent }           from './nav/nav.component';
 
 @NgModule({
   declarations: [AppComponent, NavComponent],
@@ -44,7 +45,7 @@ import { NavComponent }        from './nav/nav.component';
           import('./movies/movies.module').then((m) => m.MoviesModule),
       },
     ]),
-    // ElfNgRouterStoreModule,
+    ElfNgRouterStoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

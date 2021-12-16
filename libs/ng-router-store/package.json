@@ -1,0 +1,14 @@
+{
+  "name": "@ngneat/elf-ng-router-store",
+  "version": "0.0.1",
+  "author": "Yannick Boetzkes",
+  "keywords": ["elf", "angular", "router", "state management", "reactive store", "rxjs", "typescript"],
+  "peerDependencies": {
+    "@angular/common": "^13.0.0",
+    "@angular/core": "^13.0.0",
+    "@ngneat/elf": "^1.0.2"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}
