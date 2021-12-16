@@ -1,105 +1,204 @@
 
+Angular Router Store
+---
 
-# NgneatElfNgRouterStore
+> Bindings to connect Angular router to Elf store.
 
-This project was generated using [Nx](https://nx.dev).
+To get started, install the `@ngneat/elf-ng-router-store` package and add to the `AppModule` the Elf’s devtools modules:
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+```ts title="app.module.ts"
+import { ElfNgRouterStoreModule } from '@elf/ng-router-store';
 
-🔎 **Smart, Extensible Build Framework**
+@NgModule({
+imports: [
+  ElfNgRouterStoreModule
+})
+export class AppModule {
+}
+```
 
-## Quick Start & Documentation
+With this setup, you'll get two things:
+1. You'll see the Router actions in Redux devtools.
+2. A unique set of selectors to query the router state:
 
-[Nx Documentation](https://nx.dev/angular)
+## selectParams
+```ts
+import { RouterRepository } from '@elf/ng-router-store';
 
-[10-minute video showing all Nx features](https://nx.dev/getting-started/intro)
+export class UsersRepository {
+   constructor(private routerRepository: RouterRepository) {
+     routerRepository.selectParams().subscribe();
+     routerRepository.selectParams('id').subscribe();
+     routerRepository.selectParams(['id', 'type']).subscribe();
+   }
+}
+```
 
-[Interactive Tutorial](https://nx.dev/tutorial/01-create-application)
+## getParams
+```ts
+import { RouterRepository } from '@elf/ng-router-store';
 
-## Adding capabilities to your workspace
+export class UsersRepository {
+   constructor(private routerRepository: RouterRepository) {
+     const params = routerRepository.getParams()
+   }
+}
+```
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+## selectQueryParams
+```ts
+import { RouterRepository } from '@elf/ng-router-store';
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+export class UsersRepository {
+   constructor(private routerRepository: RouterRepository) {
+     routerRepository.selectQueryParams().subscribe();
+     routerRepository.selectQueryParams('redirectTarget').subscribe();
+     routerRepository.selectQueryParams(['redirectTarget', 'type']).subscribe();
+   }
+}
+```
 
-Below are our core plugins:
+## getQueryParams
+```ts
+import { RouterRepository } from '@elf/ng-router-store';
 
-- [Angular](https://angular.io)
-  - `ng add @nrwl/angular`
-- [React](https://reactjs.org)
-  - `ng add @nrwl/react`
-- Web (no framework frontends)
-  - `ng add @nrwl/web`
-- [Nest](https://nestjs.com)
-  - `ng add @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `ng add @nrwl/express`
-- [Node](https://nodejs.org)
-  - `ng add @nrwl/node`
+export class UsersRepository {
+   constructor(private routerRepository: RouterRepository) {
+     const redirectTarget = routerRepository.getQueryParams().redirectTarget
+   }
+}
+```
 
-There are also many [community plugins](https://nx.dev/community) you could add.
+## selectFragment
 
-## Generate an application
+```ts
+import { RouterRepository } from '@elf/ng-router-store';
 
-Run `ng g @nrwl/angular:app my-app` to generate an application.
+export class UsersRepository {
+   constructor(private routerRepository: RouterRepository) {
+     routerRepository.selectFragment().subscribe();
+   }
+}
+```
 
-> You can use any of the plugins above to generate applications as well.
+## getFragment
+```ts
+import { RouterRepository } from '@elf/ng-router-store';
 
-When using Nx, you can create multiple applications and libraries in the same workspace.
+export class UsersRepository {
+   constructor(private routerRepository: RouterRepository) {
+     const fragment = routerRepository.getFragment()
+   }
+}
+```
 
-## Generate a library
+## selectData
 
-Run `ng g @nrwl/angular:lib my-lib` to generate a library.
+```ts
+import { RouterRepository } from '@elf/ng-router-store';
 
-> You can also use any of the plugins above to generate libraries as well.
+export class UsersRepository {
+   constructor(private routerRepository: RouterRepository) {
+     routerRepository.selectData().subscribe();
+     routerRepository.selectData('id').subscribe();
+     routerRepository.selectData(['id', 'type']).subscribe();
+   }
+}
+```
 
-Libraries are shareable across libraries and applications. They can be imported from `@ngneat-elf-ng-router-store/mylib`.
+## getData
+```ts
+import { RouterRepository } from '@elf/ng-router-store';
 
-## Development server
+export class UsersRepository {
+   constructor(private routerRepository: RouterRepository) {
+     const data = routerRepository.getData()
+   }
+}
+```
 
-Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+## selectNavigationExtras
 
-## Code scaffolding
+```ts
+import { RouterRepository } from '@elf/ng-router-store';
 
-Run `ng g component my-component --project=my-app` to generate a new component.
+export class UsersRepository {
+   constructor(private routerRepository: RouterRepository) {
+     routerRepository.selectNavigationExtras().subscribe();
+     routerRepository.selectNavigationExtras('id').subscribe();
+     routerRepository.selectNavigationExtras(['id', 'type']).subscribe();
+   }
+}
+```
 
-## Build
+## getNavigationExtras
+```ts
+import { RouterRepository } from '@elf/ng-router-store';
 
-Run `ng build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+export class UsersRepository {
+   constructor(private routerRepository: RouterRepository) {
+     const extras = routerRepository.getNavigationExtras()
+   }
+}
+```
 
-## Running unit tests
+## selectNavigationCancel
 
-Run `ng test my-app` to execute the unit tests via [Jest](https://jestjs.io).
+```ts
+import { RouterRepository } from '@elf/ng-router-store';
 
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
-
+export class UsersRepository {
+   constructor(private routerRepository: RouterRepository) {
+     routerRepository.selectNavigationCancel().subscribe();
+   }
+}
+```
 
 
+## selectNavigationError
 
+```ts
+import { RouterRepository } from '@elf/ng-router-store';
 
+export class UsersRepository {
+   constructor(private routerRepository: RouterRepository) {
+     routerRepository.selectNavigationError().subscribe();
+   }
+}
+```
 
-## ☁ Nx Cloud
+## Use case
+For example, we can create a query that maps an id from the URL to an entity in the store:
 
-### Distributed Computation Caching & Distributed Task Execution
+```ts title="articles.query.ts"
+export class ArticlesRepository {
+  selectArticle$ = this.routerRepository.selectParams('id').pipe(
+     switchMap(id => this.selectEntity(id))
+  );
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
+  constructor(private routerRepository: RouterRepository) {}
+}
+```
 
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
+And use it in the component:
+```ts title="articles.component.ts"
+@Component()
+export class ArticleComponent {
+  article$ = this.articlesRepository.selectArticle$;
 
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
+  constructor(private articlesRepository: ArticlesRepository) {}
+}
+```
 
-Visit [Nx Cloud](https://nx.app/) to learn more.
+## Lazy Load Modules
+To get the lazy modules routing params, add the following option to the `RouterModule.forRoot` method:
+
+```ts title="main.ts"
+{
+  imports: [
+    RouterModule.forRoot(routes, {
+      paramsInheritanceStrategy: 'always'
+    })
+  ]
+}
+```

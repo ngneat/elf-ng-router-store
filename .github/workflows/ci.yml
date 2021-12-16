@@ -33,9 +33,6 @@ jobs:
       - name: Install dependencies
         run: npm i
 
-      - name: Install CLI dependencies
-        run: cd packages/cli && npm i
-
       - name: Run ESLint
         run: npm run lint
 
