@@ -1,4 +1,4 @@
-name: '@ngneat/elf'
+name: '@ngneat/elf-ng-router-store'
 
 on:
   push:
@@ -37,10 +37,10 @@ jobs:
         run: cd packages/cli && npm i
 
       - name: Run ESLint
-        run: npm run lint:all
+        run: npm run lint
 
       - name: Run Build
-        run: npm run build:all
+        run: npm run build
 
       - name: Run unit tests
-        run: npm run test:all
+        run: npm run test
