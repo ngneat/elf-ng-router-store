@@ -24,7 +24,7 @@
     "@angular/platform-browser-dynamic": "^13.0.0",
     "@angular/router": "^13.0.0",
     "@ngneat/elf": "^1.0.2",
-    "@ngneat/elf-devtools": "^1.1.0",
+    "@ngneat/elf-devtools": "^1.2.0",
     "@ngneat/elf-entities": "^2.0.2",
     "@ngneat/elf-pagination": "^1.0.0",
     "@ngneat/elf-requests": "^1.1.1",

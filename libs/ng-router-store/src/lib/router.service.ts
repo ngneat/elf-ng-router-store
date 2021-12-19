@@ -9,6 +9,7 @@ import {
   Router,
   RoutesRecognized,
 }                                        from '@angular/router';
+import { send }                          from '@ngneat/elf-devtools';
 import { RouterStateService }            from './router-state.service';
 import { RouterRepository, RouterState } from './router.repository';
 
@@ -30,16 +31,19 @@ export class RouterService {
   }
 
   dispatchRouterCancel(event: NavigationCancel) {
+    send({ type: '[Router] Navigation Cancelled' });
     this.update({ navigationId: event.id });
     this.routerStateService.navigationCancel.next(event);
   }
 
   dispatchRouterError(event: NavigationError) {
+    send({ type: '[Router] Navigation Error' });
     this.update({ navigationId: event.id });
     this.routerStateService.navigationError.next(event);
   }
 
   dispatchRouterSuccess() {
+    send({ type: '[Router] Navigation Succeeded' });
     this.update(this.lastRouterState);
   }
 

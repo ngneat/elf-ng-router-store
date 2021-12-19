@@ -1624,10 +1624,10 @@
   resolved "https://registry.yarnpkg.com/@jridgewell/resolve-uri/-/resolve-uri-1.0.0.tgz#3fdf5798f0b49e90155896f6291df186eac06c83"
   integrity sha512-9oLAnygRMi8Q5QkYEU4XWK04B+nuoXoxjRvRxgjuChkLZFBja0YPSgdZ7dZtwhncLBcQe/I/E+fLuk5qxcYVJA==
 
-"@ngneat/elf-devtools@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@ngneat/elf-devtools/-/elf-devtools-1.1.0.tgz#8d9fe8c399f0bd4d8b8c76cd57fc039f191bd497"
-  integrity sha512-ypfuPBkwZ7tM1F2VDElwwbjUzZmBNCmN+wbssGQTDg7JS1J9mYhpgYHMoqyKkpU4N/DUTBMXfLLfhqMfgKvgSw==
+"@ngneat/elf-devtools@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@ngneat/elf-devtools/-/elf-devtools-1.2.0.tgz#820b4960cabb8e357a6b87c47569c6a0e57d3669"
+  integrity sha512-0mnW7O9qP6qs45abzTCkk5jI9tBsxtQlMizMJCD+HvHHfQk1l5Z7w9PyBhX7hrD5pw0xYc3XE5fuEzQSzP6Jjg==
 
 "@ngneat/elf-entities@^2.0.2":
   version "2.0.2"
