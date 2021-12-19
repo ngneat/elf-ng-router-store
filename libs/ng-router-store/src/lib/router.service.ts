@@ -72,8 +72,7 @@ export class RouterService {
       .select((state) => state)
       .subscribe((s) => {
         this.lastRouterState = s;
-        // todo do we need this?
-        // this.navigateIfNeeded();
+        this.navigateIfNeeded();
       });
   }
 
@@ -111,9 +110,9 @@ export class RouterService {
 
   private navigateIfNeeded(): void {
     if (
-      !this.lastRouterState ||
-      !this.lastRouterState.state ||
-      this.dispatchTriggeredByRouter
+      !this.lastRouterState
+      || !this.lastRouterState.state
+      || this.dispatchTriggeredByRouter
     ) {
       return;
     }
@@ -122,5 +121,6 @@ export class RouterService {
       this.navigationTriggeredByDispatch = true;
       this.router.navigateByUrl(this.lastRouterState.state.url);
     }
+
   }
 }

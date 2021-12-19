@@ -1,5 +1,5 @@
 import { APP_BASE_HREF }                                                          from '@angular/common';
-import { Component, Injectable }                                                  from '@angular/core';
+import { Component, Injectable, NgZone }                                          from '@angular/core';
 import { fakeAsync, TestBed, tick }                                               from '@angular/core/testing';
 import { ActivatedRouteSnapshot, CanActivate, NavigationExtras, Router, Routes, } from '@angular/router';
 import { RouterTestingModule }                                                    from '@angular/router/testing';
@@ -69,8 +69,12 @@ describe('RouterService', () => {
     navigateByUrl('start');
   });
 
+  afterEach(() => {
+    routerRepository.update({ state: null, navigationId: null });
+  });
+
   function navigateByUrl(url: string, navigationExtras?: NavigationExtras) {
-    return router.navigateByUrl(url, navigationExtras);
+    return router.navigateByUrl(url, navigationExtras)
   }
 
   it('should update the router state after a successful navigation', async () => {
