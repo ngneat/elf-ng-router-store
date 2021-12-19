@@ -1,5 +1,5 @@
 import { APP_BASE_HREF }                                                          from '@angular/common';
-import { Component, Injectable, NgZone }                                          from '@angular/core';
+import { Component, Injectable }                                          from '@angular/core';
 import { fakeAsync, TestBed, tick }                                               from '@angular/core/testing';
 import { ActivatedRouteSnapshot, CanActivate, NavigationExtras, Router, Routes, } from '@angular/router';
 import { RouterTestingModule }                                                    from '@angular/router/testing';
