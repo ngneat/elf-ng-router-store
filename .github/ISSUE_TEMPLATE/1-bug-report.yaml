@@ -1,27 +1,7 @@
 name: Bug Report
-description: Report a bug in the Elf Library
+description: Report a bug in the Elf ng router store Library
 
 body:
-  - type: dropdown
-    id: affected-packages
-    attributes:
-      label: Which @ngneat/elf-* package(s) are the source of the bug?
-      options:
-        - store
-        - entities
-        - requests-status
-        - requests-cache
-        - requests-data-source
-        - pagination
-        - persist-state
-        - state-history
-        - devtools
-        - CLI
-        - Don't known / other
-      multiple: true
-    validations:
-      required: true
-
   - type: dropdown
     id: is-regression
     attributes:
@@ -60,7 +40,7 @@ body:
     id: other
     attributes:
       label: Anything else?
-  
+
   - type: dropdown
     id: contribute
     attributes:
