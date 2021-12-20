@@ -1,4 +1,4 @@
-name: '@ngneat/elf-ng-router-store'
+name: 'Release'
 
 on:
   pull_request:
