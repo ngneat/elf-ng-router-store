@@ -21,7 +21,7 @@ jobs:
           persist-credentials: false
 
       - name: Fetch latest base branch
-        run: git fetch origin main
+        run: git fetch origin master
 
       - name: Setup Node.js
         uses: actions/setup-node@v2.5.0
