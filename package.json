@@ -11,8 +11,7 @@
     "start": "nx serve",
     "build": "nx build ng-router-store",
     "lint": "nx lint ng-router-store",
-    "test": "nx test ng-router-store",
-    "standard-version": "standard-version"
+    "test": "nx test ng-router-store"
   },
   "private": true,
   "dependencies": {
@@ -75,7 +74,6 @@
     "postcss-preset-env": "^6.7.0",
     "postcss-url": "^10.1.1",
     "prettier": "^2.3.1",
-    "standard-version": "^9.3.2",
     "ts-jest": "27.0.5",
     "typescript": "~4.4.3"
   },
