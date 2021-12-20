@@ -1,0 +1,45 @@
+name: '@ngneat/elf-ng-router-store'
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+    steps:
+      - uses: actions/checkout@v2
+      if: github.event.pull_request.merged
+      with:
+        ref: refs/heads/master
+
+        - name: Setup git repo
+            run: |
+              git config user.name $GITHUB_ACTOR
+              git config user.email gh-actions-${GITHUB_ACTOR}@github.com
+              git remote add gh-origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+            env:
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+        - name: Install Node.js
+          uses: actions/setup-node@v1
+          with:
+            node-version: 8
+
+        - name: npm install
+          run: npm install
+
+        - name: version and publish
+          run: |
+            npm run standard-version
+            npm set //registry.npmjs.org/:_authToken NPM_API_TOKEN
+            npm publish
+          env:
+            CI: true
+            NPM_API_TOKEN: ${{ secrets.NPM_API_TOKEN }}
+
+        - name: Push release commit and tag to GitHub
+            run: git push gh-origin HEAD:master --tags
