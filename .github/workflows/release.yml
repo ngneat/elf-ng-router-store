@@ -21,9 +21,6 @@ jobs:
           persist-credentials: false
           ref: "feat/test"
 
-      - name: Fetch latest base branch
-        run: git fetch origin feat/test
-
       - name: Setup Node.js
         uses: actions/setup-node@v2.5.0
         with:
