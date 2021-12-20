@@ -216,3 +216,6 @@ export class RouterRepository {
     store.update((state) => ({ ...state, ...update }));
   }
 }
+
+
+console.log("test")
