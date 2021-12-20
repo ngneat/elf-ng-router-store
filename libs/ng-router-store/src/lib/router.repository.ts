@@ -217,5 +217,3 @@ export class RouterRepository {
   }
 }
 
-
-console.log("test")
