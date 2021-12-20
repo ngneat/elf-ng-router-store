@@ -23,6 +23,8 @@ jobs:
               git remote add gh-origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
             env:
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              GITHUB_ACTOR: ${{ secrets.GITHUB_ACTOR }}
+              GITHUB_REPOSITORY: ${{ secrets.GITHUB_REPOSITORY }}
 
         - name: Install Node.js
           uses: actions/setup-node@v1
