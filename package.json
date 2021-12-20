@@ -1,6 +1,6 @@
 {
   "name": "ngneat-elf-ng-router-store",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "c": "git-cz",
@@ -73,6 +73,7 @@
     "postcss-preset-env": "^6.7.0",
     "postcss-url": "^10.1.1",
     "prettier": "^2.3.1",
+    "standard-version": "^9.3.2",
     "ts-jest": "27.0.5",
     "typescript": "~4.4.3"
   },
