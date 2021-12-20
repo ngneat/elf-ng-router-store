@@ -16,25 +16,20 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-
-      - name: Fetch latest base branch
-        run: git fetch origin main
+          ref: master
 
       - name: Setup Node.js
         uses: actions/setup-node@v2.5.0
         with:
           node-version: 14.x
 
-      - name: NPM
-        uses: ng-easy/npm-setup@v1.7.5
-        with:
-          nx-key: build
+      - name: npm install
+        run: npm install
 
       - name: Build release scripts
         uses: mansagroup/nrwl-nx-action@v2.1.0
         with:
           targets: build
-          projects: builders
 
       - name: Release
         uses: mansagroup/nrwl-nx-action@v2.1.0
