@@ -35,6 +35,7 @@ jobs:
         uses: mansagroup/nrwl-nx-action@v2.1.0
         with:
           targets: release
+          affected: false
         env:
           CI: true
           NPM_TOKEN: ${{ secrets.NPM_API_TOKEN }}
@@ -42,9 +43,8 @@ jobs:
 
       - name: Merge master to develop
         run: |
-          git fetch --unshallow
+          git fetch
           git checkout develop
           git pull
           git merge --no-ff master -m "Auto-merge master back to develop"
           git push
-
