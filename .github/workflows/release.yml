@@ -31,16 +31,15 @@ jobs:
       - name: npm install
         run: npm install
 
-      - name: NPM
-        uses: ng-easy/npm-setup@v1.7.5
-        with:
-          nx-key: build
+#      - name: NPM
+#        uses: ng-easy/npm-setup@v1.7.5
+#        with:
+#          nx-key: build
 
       - name: Build release scripts
         uses: mansagroup/nrwl-nx-action@v2.1.0
         with:
           targets: build
-          projects: builders
 
       - name: Release
         uses: mansagroup/nrwl-nx-action@v2.1.0
