@@ -28,6 +28,9 @@ jobs:
         with:
           node-version: 14.x
 
+      - name: npm install
+        run: npm install
+
       - name: NPM
         uses: ng-easy/npm-setup@v1.7.5
         with:
