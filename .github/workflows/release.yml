@@ -1,4 +1,4 @@
-name: 'Release'
+name: Release
 
 on:
   pull_request:
@@ -6,42 +6,41 @@ on:
       - closed
 
 jobs:
-  release:
+  npm:
+    name: Release
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: true
+
     steps:
-      - uses: actions/checkout@v2
-      if: github.event.pull_request.merged
-      with:
-        ref: refs/heads/master
+      - name: Checkout repo
+        uses: actions/checkout@v2.4.0
+        with:
+          fetch-depth: 0
+          persist-credentials: false
 
-        - name: Setup git repo
-            run: |
-              git config user.name $GITHUB_ACTOR
-              git config user.email gh-actions-${GITHUB_ACTOR}@github.com
-              git remote add gh-origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-            env:
-              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              GITHUB_ACTOR: ${{ secrets.GITHUB_ACTOR }}
-              GITHUB_REPOSITORY: ${{ secrets.GITHUB_REPOSITORY }}
+      - name: Fetch latest base branch
+        run: git fetch origin main
 
-        - name: Install Node.js
-          uses: actions/setup-node@v1
-          with:
-            node-version: 8
+      - name: Setup Node.js
+        uses: actions/setup-node@v2.5.0
+        with:
+          node-version: 14.x
 
-        - name: npm install
-          run: npm install
+      - name: NPM
+        uses: ng-easy/npm-setup@v1.7.5
+        with:
+          nx-key: build
 
-        - name: version and publish
-          run: |
-            npm run standard-version
-            npm set //registry.npmjs.org/:_authToken NPM_API_TOKEN
-            npm publish
-          env:
-            CI: true
-            NPM_API_TOKEN: ${{ secrets.NPM_API_TOKEN }}
+      - name: Build release scripts
+        uses: mansagroup/nrwl-nx-action@v2.1.0
+        with:
+          targets: build
+          projects: builders
 
-        - name: Push release commit and tag to GitHub
-            run: git push gh-origin HEAD:master --tags
+      - name: Release
+        uses: mansagroup/nrwl-nx-action@v2.1.0
+        with:
+          targets: release
+        env:
+          CI: true
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
