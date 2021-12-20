@@ -39,6 +39,18 @@
               "libs/ng-router-store/src/**/*.html"
             ]
           }
+        },
+        "release": {
+          "builder": "@ng-easy/builders:semantic-release",
+          "configurations": {
+            "local": {
+              "force": true,
+              "dryRun": false,
+              "branches": ["feat/test"],
+              "github": false,
+              "npm": false
+            }
+          }
         }
       },
       "tags": []

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable }                    from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   GuardsCheckEnd,
@@ -8,15 +8,16 @@ import {
   ResolveEnd,
   Router,
   RoutesRecognized,
-} from '@angular/router';
-import { RouterStateService } from './router-state.service';
+}                                        from '@angular/router';
+import { send }                          from '@ngneat/elf-devtools';
+import { RouterStateService }            from './router-state.service';
 import { RouterRepository, RouterState } from './router.repository';
 
 @Injectable({ providedIn: 'root' })
 export class RouterService {
   private lastRouterState: RouterState;
   private navigationTriggeredByDispatch = false;
-  private dispatchTriggeredByRouter = false;
+  private dispatchTriggeredByRouter     = false;
 
   constructor(
     private routerRepository: RouterRepository,
@@ -30,16 +31,19 @@ export class RouterService {
   }
 
   dispatchRouterCancel(event: NavigationCancel) {
+    send({ type: '[Router] Navigation Cancelled' });
     this.update({ navigationId: event.id });
     this.routerStateService.navigationCancel.next(event);
   }
 
   dispatchRouterError(event: NavigationError) {
+    send({ type: '[Router] Navigation Error' });
     this.update({ navigationId: event.id });
     this.routerStateService.navigationError.next(event);
   }
 
   dispatchRouterSuccess() {
+    send({ type: '[Router] Navigation Succeeded' });
     this.update(this.lastRouterState);
   }
 
@@ -51,11 +55,14 @@ export class RouterService {
         e instanceof ResolveEnd
       ) {
         this.lastRouterState = this.serializeRoute(e);
-      } else if (e instanceof NavigationCancel) {
+      }
+      else if (e instanceof NavigationCancel) {
         this.dispatchRouterCancel(e);
-      } else if (e instanceof NavigationError) {
+      }
+      else if (e instanceof NavigationError) {
         this.dispatchRouterError(e);
-      } else if (
+      }
+      else if (
         e instanceof NavigationEnd &&
         !this.navigationTriggeredByDispatch
       ) {
@@ -76,7 +83,7 @@ export class RouterService {
   private update(routerState: Partial<RouterState>) {
     this.dispatchTriggeredByRouter = true;
     this.routerRepository.update(routerState);
-    this.dispatchTriggeredByRouter = false;
+    this.dispatchTriggeredByRouter     = false;
     this.navigationTriggeredByDispatch = false;
   }
 
@@ -107,9 +114,9 @@ export class RouterService {
 
   private navigateIfNeeded(): void {
     if (
-      !this.lastRouterState ||
-      !this.lastRouterState.state ||
-      this.dispatchTriggeredByRouter
+      !this.lastRouterState
+      || !this.lastRouterState.state
+      || this.dispatchTriggeredByRouter
     ) {
       return;
     }
@@ -118,5 +125,6 @@ export class RouterService {
       this.navigationTriggeredByDispatch = true;
       this.router.navigateByUrl(this.lastRouterState.state.url);
     }
+
   }
 }

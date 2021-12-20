@@ -1,5 +1,5 @@
 import { APP_BASE_HREF }                                                          from '@angular/common';
-import { Component, Injectable, NgZone }                                          from '@angular/core';
+import { Component, Injectable }                                          from '@angular/core';
 import { fakeAsync, TestBed, tick }                                               from '@angular/core/testing';
 import { ActivatedRouteSnapshot, CanActivate, NavigationExtras, Router, Routes, } from '@angular/router';
 import { RouterTestingModule }                                                    from '@angular/router/testing';
@@ -54,7 +54,6 @@ const routes: Routes = [
 
 describe('RouterService', () => {
   let routerRepository: RouterRepository;
-  let ngZone: NgZone;
   let router: Router;
 
   beforeEach(() => {
@@ -65,14 +64,17 @@ describe('RouterService', () => {
     }).compileComponents();
 
     routerRepository = TestBed.get(RouterRepository);
-    ngZone           = TestBed.get(NgZone);
     router           = TestBed.get(Router);
 
     navigateByUrl('start');
   });
 
+  afterEach(() => {
+    routerRepository.update({ state: null, navigationId: null });
+  });
+
   function navigateByUrl(url: string, navigationExtras?: NavigationExtras) {
-    return ngZone.run(() => router.navigateByUrl(url, navigationExtras));
+    return router.navigateByUrl(url, navigationExtras)
   }
 
   it('should update the router state after a successful navigation', async () => {
@@ -83,7 +85,6 @@ describe('RouterService', () => {
   });
 
   it('should update the router state when only the hash changes', async () => {
-    // todo earlier test is bleeding in this test. navigation id starts at 2
     await navigateByUrl('/start#hashBrowns');
 
     expect(routerRepository.getValue().navigationId).toEqual(2);

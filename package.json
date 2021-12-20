@@ -1,14 +1,17 @@
 {
   "name": "ngneat-elf-ng-router-store",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
+    "c": "git-cz",
+    "cz": "cz",
     "ng": "nx",
     "nx": "nx",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "start": "nx serve",
-    "build": "nx build",
-    "test": "nx test"
+    "build": "nx build ng-router-store",
+    "lint": "nx lint ng-router-store",
+    "test": "nx test ng-router-store"
   },
   "private": true,
   "dependencies": {
@@ -21,7 +24,7 @@
     "@angular/platform-browser-dynamic": "^13.0.0",
     "@angular/router": "^13.0.0",
     "@ngneat/elf": "^1.0.2",
-    "@ngneat/elf-devtools": "^1.1.0",
+    "@ngneat/elf-devtools": "^1.2.0",
     "@ngneat/elf-entities": "^2.0.2",
     "@ngneat/elf-pagination": "^1.0.0",
     "@ngneat/elf-requests": "^1.1.1",
@@ -43,6 +46,7 @@
     "@angular/cli": "~13.0.0",
     "@angular/compiler-cli": "^13.0.0",
     "@angular/language-service": "^13.0.0",
+    "@ng-easy/builders": "^4.0.1",
     "@nrwl/cli": "13.3.5",
     "@nrwl/cypress": "13.3.5",
     "@nrwl/eslint-plugin-nx": "13.3.5",
@@ -54,11 +58,14 @@
     "@types/node": "14.14.33",
     "@typescript-eslint/eslint-plugin": "~5.3.0",
     "@typescript-eslint/parser": "~5.3.0",
+    "commitizen": "4.2.4",
     "cypress": "^9.1.0",
+    "cz-conventional-changelog": "3.3.0",
     "eslint": "8.2.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-cypress": "^2.10.3",
     "faker": "^5.5.3",
+    "git-cz": "4.7.1",
     "jest": "27.2.3",
     "jest-preset-angular": "11.0.0",
     "ng-packagr": "^13.0.0",
@@ -69,5 +76,10 @@
     "prettier": "^2.3.1",
     "ts-jest": "27.0.5",
     "typescript": "~4.4.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "git-cz"
+    }
   }
 }
