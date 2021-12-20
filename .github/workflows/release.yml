@@ -4,12 +4,14 @@ on:
   pull_request:
     types:
       - closed
+  push:
+    branches:
+      - develop
 
 jobs:
   npm:
     name: Release
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2.4.0

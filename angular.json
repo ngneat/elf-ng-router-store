@@ -42,6 +42,11 @@
         },
         "release": {
           "builder": "@ng-easy/builders:semantic-release",
+          "options": {
+            "branches": ["feat/test"],
+            "github": false,
+            "npm": false
+          },
           "configurations": {
             "local": {
               "force": true,
