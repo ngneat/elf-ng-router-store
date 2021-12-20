@@ -40,11 +40,11 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_API_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Merge master to dev
+      - name: Merge master to develop
         run: |
           git fetch --unshallow
           git checkout develop
           git pull
-          git merge --no-ff master -m "Auto-merge master back to dev"
+          git merge --no-ff master -m "Auto-merge master back to develop"
           git push
 
