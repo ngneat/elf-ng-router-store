@@ -2,6 +2,14 @@
   "name": "@ngneat/elf-ng-router-store",
   "version": "1.0.0",
   "author": "Yannick Boetzkes",
+  "bugs": {
+    "url": "https://github.com/ngneat/elf-ng-router-store/issues"
+  },
+  "homepage": "https://github.com/ngneat/elf-ng-router-store#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ngneat/elf-ng-router-store"
+  },
   "keywords": [
     "elf",
     "angular",
