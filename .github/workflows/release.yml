@@ -43,6 +43,8 @@ jobs:
 
       - name: Merge master to develop
         run: |
+          git config --global user.email "${GITHUB_ACTOR}"
+          git config --global user.name "${GITHUB_ACTOR}@users.noreply.github.com"
           git fetch
           git checkout develop
           git pull
