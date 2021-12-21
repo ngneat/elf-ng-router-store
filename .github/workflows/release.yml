@@ -35,16 +35,18 @@ jobs:
         uses: mansagroup/nrwl-nx-action@v2.1.0
         with:
           targets: release
+          affected: false
         env:
           CI: true
-          NPM_TOKEN: ${{ secrets.NPM_API_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Merge master to develop
         run: |
-          git fetch --unshallow
+          git config --global user.email "${GITHUB_ACTOR}"
+          git config --global user.name "${GITHUB_ACTOR}@users.noreply.github.com"
+          git fetch
           git checkout develop
           git pull
           git merge --no-ff master -m "Auto-merge master back to develop"
           git push
-
