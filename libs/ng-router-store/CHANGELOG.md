@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/ngneat/elf-ng-router-store/compare/@ngneat/elf-ng-router-store@1.0.0...@ngneat/elf-ng-router-store@1.0.1) (2021-12-21)
+
+
+### Bug Fixes
+
+* **ng-router-store:** 🐞 create public npm library ([1fcd7eb](https://github.com/ngneat/elf-ng-router-store/commit/1fcd7eb64763d095840447432a14cae233c9683a))
+
 # 1.0.0 (2021-12-20)
 
 
