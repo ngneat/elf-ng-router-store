@@ -23,7 +23,7 @@ With this setup, you'll get two things:
 
 ## selectParams
 ```ts
-import { RouterRepository } from '@elf/ng-router-store';
+import { RouterRepository } from '@ngneat/elf-ng-router-store';
 
 export class UsersRepository {
    constructor(private routerRepository: RouterRepository) {
@@ -36,7 +36,7 @@ export class UsersRepository {
 
 ## getParams
 ```ts
-import { RouterRepository } from '@elf/ng-router-store';
+import { RouterRepository } from '@ngneat/elf-ng-router-store';
 
 export class UsersRepository {
    constructor(private routerRepository: RouterRepository) {
@@ -47,7 +47,7 @@ export class UsersRepository {
 
 ## selectQueryParams
 ```ts
-import { RouterRepository } from '@elf/ng-router-store';
+import { RouterRepository } from '@ngneat/elf-ng-router-store';
 
 export class UsersRepository {
    constructor(private routerRepository: RouterRepository) {
@@ -60,7 +60,7 @@ export class UsersRepository {
 
 ## getQueryParams
 ```ts
-import { RouterRepository } from '@elf/ng-router-store';
+import { RouterRepository } from '@ngneat/elf-ng-router-store';
 
 export class UsersRepository {
    constructor(private routerRepository: RouterRepository) {
@@ -72,7 +72,7 @@ export class UsersRepository {
 ## selectFragment
 
 ```ts
-import { RouterRepository } from '@elf/ng-router-store';
+import { RouterRepository } from '@ngneat/elf-ng-router-store';
 
 export class UsersRepository {
    constructor(private routerRepository: RouterRepository) {
@@ -83,7 +83,7 @@ export class UsersRepository {
 
 ## getFragment
 ```ts
-import { RouterRepository } from '@elf/ng-router-store';
+import { RouterRepository } from '@ngneat/elf-ng-router-store';
 
 export class UsersRepository {
    constructor(private routerRepository: RouterRepository) {
@@ -95,7 +95,7 @@ export class UsersRepository {
 ## selectData
 
 ```ts
-import { RouterRepository } from '@elf/ng-router-store';
+import { RouterRepository } from '@ngneat/elf-ng-router-store';
 
 export class UsersRepository {
    constructor(private routerRepository: RouterRepository) {
@@ -108,7 +108,7 @@ export class UsersRepository {
 
 ## getData
 ```ts
-import { RouterRepository } from '@elf/ng-router-store';
+import { RouterRepository } from '@ngneat/elf-ng-router-store';
 
 export class UsersRepository {
    constructor(private routerRepository: RouterRepository) {
@@ -120,7 +120,7 @@ export class UsersRepository {
 ## selectNavigationExtras
 
 ```ts
-import { RouterRepository } from '@elf/ng-router-store';
+import { RouterRepository } from '@ngneat/elf-ng-router-store';
 
 export class UsersRepository {
    constructor(private routerRepository: RouterRepository) {
@@ -133,7 +133,7 @@ export class UsersRepository {
 
 ## getNavigationExtras
 ```ts
-import { RouterRepository } from '@elf/ng-router-store';
+import { RouterRepository } from '@ngneat/elf-ng-router-store';
 
 export class UsersRepository {
    constructor(private routerRepository: RouterRepository) {
@@ -145,7 +145,7 @@ export class UsersRepository {
 ## selectNavigationCancel
 
 ```ts
-import { RouterRepository } from '@elf/ng-router-store';
+import { RouterRepository } from '@ngneat/elf-ng-router-store';
 
 export class UsersRepository {
    constructor(private routerRepository: RouterRepository) {
@@ -158,7 +158,7 @@ export class UsersRepository {
 ## selectNavigationError
 
 ```ts
-import { RouterRepository } from '@elf/ng-router-store';
+import { RouterRepository } from '@ngneat/elf-ng-router-store';
 
 export class UsersRepository {
    constructor(private routerRepository: RouterRepository) {
