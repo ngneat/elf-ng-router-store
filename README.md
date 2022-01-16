@@ -7,7 +7,7 @@ Angular Router Store
 To get started, install the `@ngneat/elf-ng-router-store` package and add to the `AppModule` the Elf’s devtools modules:
 
 ```ts title="app.module.ts"
-import { ElfNgRouterStoreModule } from '@elf/ng-router-store';
+import { ElfNgRouterStoreModule } from '@elf/elf-ng-router-store';
 
 @NgModule({
 imports: [
