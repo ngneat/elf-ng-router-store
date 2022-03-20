@@ -11,10 +11,10 @@ export class AppComponent {
 
   constructor(private routerRepository: RouterRepository) {
     routerRepository
-      .selectParams('id')
-      .subscribe((param) => console.log(param));
+    .selectParams()
+    .subscribe((params) => console.log(params));
     routerRepository
-      .selectQueryParams('test')
-      .subscribe((queryParam) => console.log(queryParam));
+    .selectQueryParams()
+    .subscribe((queryParams) => console.log(queryParams));
   }
 }

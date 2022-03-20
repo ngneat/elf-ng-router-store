@@ -15,6 +15,9 @@ export type ActiveRouteState = {
   navigationExtras: HashMap<any> | undefined;
 };
 
+type Params = Record<any, any>
+type QueryParams = Record<any, any>
+
 export type RouterState = {
   state: ActiveRouteState | null;
   navigationId: number | null;
@@ -51,11 +54,11 @@ export class RouterRepository {
    * @param names
    */
   selectParams<T extends string>(names: string[]): Observable<T[]>;
-  selectParams<T extends string>(names?: string): Observable<T>;
+  selectParams<T extends string>(names: string): Observable<T>;
+  selectParams<T extends string>(): Observable<Params>;
   selectParams<T extends string>(
     names?: string | string[]
-  ): Observable<T | T[] | null> {
-    // todo is this useful?
+  ): Observable<T | T[] | Params | null> {
     if (names === undefined) {
       return store.pipe(sliceState('params'));
     }
@@ -93,10 +96,11 @@ export class RouterRepository {
    * @param names
    */
   selectQueryParams<T extends string>(names: string[]): Observable<T[]>;
-  selectQueryParams<T extends string>(names?: string): Observable<T>;
+  selectQueryParams<T extends string>(names: string): Observable<T>;
+  selectQueryParams<T extends string>(): Observable<QueryParams>;
   selectQueryParams<T extends string>(
     names?: string | string[]
-  ): Observable<T | T[] | null> {
+  ): Observable<T | T[] | QueryParams | null> {
     if (names === undefined) {
       return store.pipe(sliceState('queryParams'));
     }
