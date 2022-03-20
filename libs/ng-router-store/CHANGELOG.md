@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/ngneat/elf-ng-router-store/compare/@ngneat/elf-ng-router-store@1.0.2...@ngneat/elf-ng-router-store@1.0.3) (2022-03-20)
+
+
+### Bug Fixes
+
+* **ng-router-store:** 🐞 fix typings if no key argument provided ([e4a3f9c](https://github.com/ngneat/elf-ng-router-store/commit/e4a3f9ce3551718012d7dcf6e333f2b73fd71078))
+
 ## [1.0.1](https://github.com/ngneat/elf-ng-router-store/compare/@ngneat/elf-ng-router-store@1.0.0...@ngneat/elf-ng-router-store@1.0.1) (2021-12-21)
 
 
