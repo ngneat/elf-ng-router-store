@@ -1,6 +1,6 @@
 {
   "name": "@ngneat/elf-ng-router-store",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": "Yannick Boetzkes",
   "bugs": {
     "url": "https://github.com/ngneat/elf-ng-router-store/issues"
@@ -23,7 +23,8 @@
     "@angular/common": "^13.0.0 || ^14.0.0",
     "@angular/core": "^13.0.0 || ^14.0.0",
     "@ngneat/elf": "*",
-    "@ngneat/elf-devtools": "^1.2.0"
+    "@ngneat/elf-devtools": "^1.2.0",
+    "rxjs": "^7.4.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
